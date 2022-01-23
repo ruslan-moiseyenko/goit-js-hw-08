@@ -3,6 +3,9 @@
   --animation-duration: 250ms;
 }
 
+/* .body{
+  background-color: red;
+} */
 .gallery {
   display: grid;
   max-width: 1140px;

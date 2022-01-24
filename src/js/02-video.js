@@ -29,7 +29,7 @@ function setVideoTime() {
 }
 
 //this function saves in localStorage current vieo positon in seconds
-const saveCurrentVideoPosition = function () {
+function saveCurrentVideoPosition() {
   player.getCurrentTime()
     .then(function (seconds) {
       localStorage.setItem("videoplayer-current-time", seconds);

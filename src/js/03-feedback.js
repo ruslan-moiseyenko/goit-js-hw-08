@@ -17,14 +17,15 @@ document.addEventListener('DOMContentLoaded', setFormData);
 function setFormData() {
   const formData = JSON.parse(localStorage.getItem(FEEDBACKFORM_KEY));
   if (formData) {
-    console.log(formData);
     refs.email.value = formData.email;
     refs.textarea.value = formData.message;
+
   }
 }
 
 function onFormSubmit(e) {
   e.preventDefault();
+  console.log(formData);
   e.currentTarget.reset();
   localStorage.removeItem(FEEDBACKFORM_KEY);
 

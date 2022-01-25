@@ -17,15 +17,31 @@ document.addEventListener('DOMContentLoaded', setFormData);
 function setFormData() {
   const formData = JSON.parse(localStorage.getItem(FEEDBACKFORM_KEY));
   if (formData) {
-    refs.email.value = formData.email;
-    refs.textarea.value = formData.message;
+    if (formData.email) {
+      refs.email.value = formData.email;
+
+    }
+    if (formData.message) {
+
+      refs.textarea.value = formData.message;
+    }
 
   }
 }
 
 function onFormSubmit(e) {
   e.preventDefault();
-  console.log(formData);
+  if (refs.email.value === "") {
+    alert('You need to enter your email');
+    return;
+  }
+  if (refs.textarea.value === "") {
+    alert('Please, leave a message');
+    return;
+  }
+
+  console.log(JSON.parse(localStorage.getItem(FEEDBACKFORM_KEY)));
+
   e.currentTarget.reset();
   localStorage.removeItem(FEEDBACKFORM_KEY);
 
